@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+// Removed unused imports
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
@@ -21,16 +21,6 @@ interface KitchenDashboardProps {
 }
 
 export function KitchenDashboard({ orders, chefs, completedDishes }: KitchenDashboardProps) {
-  const [time, setTime] = useState(new Date())
-
-  // Update time every second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
 
   // Calculate order progress
   const calculateOrderProgress = (order: Order) => {
@@ -82,7 +72,7 @@ export function KitchenDashboard({ orders, chefs, completedDishes }: KitchenDash
   }
 
   // Count pending orders
-  const pendingOrdersCount = orders.filter((order) => order.dishes.some((dish) => dish.status === "pending")).length
+  // Removed unused pendingOrdersCount variable
 
   // Count pending dishes
   const pendingDishesCount = orders.reduce((count, order) => {

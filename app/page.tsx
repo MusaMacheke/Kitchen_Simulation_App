@@ -83,7 +83,7 @@ export default function Home() {
                   if (d.id === dish.id) {
                     return {
                       ...d,
-                      status: "preparing" as "preparing",
+                      status: "preparing" as const,
                       chefId: chef.id,
                       chefName: chef.name,
                     }
@@ -102,7 +102,7 @@ export default function Home() {
             if (c.id === chef.id) {
               return {
                 ...c,
-                status: "busy" as "busy",
+                status: "busy" as const,
                 currentDish: {
                   orderId: order.id,
                   dishName: dish.name,
@@ -176,7 +176,7 @@ export default function Home() {
                     ...o,
                     dishes: o.dishes.map((d) => {
                       if (d.id === dish.id) {
-                        return { ...d, status: "completed" as "completed", progress: 100 }
+                        return { ...d, status: "completed", progress: 100 } as const
                       }
                       return d
                     }),
@@ -202,7 +202,7 @@ export default function Home() {
             setChefs((currentChefs) => {
               const updatedChefs = currentChefs.map((c) => {
                 if (c.id === chef.id) {
-                  return { ...c, status: "available" as "available", currentDish: null }
+                  return { ...c, status: "available" as const, currentDish: null }
                 }
                 return c
               })
